@@ -1,0 +1,90 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Deployment Options</title> 
+  <meta name="description" content="This blog focuses on the research aspects of tech industries by sharing informative articles and interviews with industry leaders.">
+  <link rel="canonical" href="/techarq-v-2/blog/deployment-options">
+  <link rel="apple-touch-icon" href="/techarq-v-2/apple-touch-icon.png">
+  <link rel="stylesheet" href="/techarq-v-2/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <script src="/techarq-v-2/scripts/modernizr.custom.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header role="banner" class="page-header" id="top">
+    <img class="background" src="/techarq-v-2/images/img3_techarq_1.jpg">
+ <h1>TechArq</h1>
+ <p>Connect & Research</p>
+<nav role="navigation">
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="toggle-label"><span>menu</span></label>
+<ul class="menu">
+  <li><a href="/techarq-v-2/index.html" title="Articles">Blog</a></li>
+  <li><a href="/techarq-v-2/about.html" title="learn more">About</a></li>
+  </ul>
+</header>
+<main role="main" class="cf">
+<article class="posts">
+ <article role="article" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+            <h2>Deployment Options</h2>
+            <time itemprop="dateCreated" datetime="2015-08-01 00:00:00 -0300">
+                August 1, 2015</time>
+        </header>
+        <p>Once you’ve finished building your Jekyll site you’ll need to decide where and how you want to deploy it. Since Jekyll builds static content you can serve it almost anywhere. There are no server-side dependencies, CMS installations, database administrators, or server stacks to worry about. If the server can handle HTML, CSS, and JavaScript, it can serve your site. With that in mind let’s take a look at some of the most common options for deploying Jekyll sites.</p>
+
+<p>###FTP/SFTP</p>
+
+<p>Almost all hosting companies allow you to upload content via FTP or SFTP. Simply use a FTP client (such as <a href="https://filezilla-project.org/" title="Filezilla">Filezilla</a>) to upload the contents of your <strong>_site</strong> directory to the <strong>www</strong> or <strong>public_html</strong> directory of your hosting server. One downside to this method is the manual nature of updating your site. When files change you’ll need to manually overwrite your remote files. For larger sites this can be time-consuming and prone to errors.</p>
+
+<p>One option for enhancing FTP deployment is to use a Git-integrated FTP client like <a href="https://github.com/git-ftp/git-ftp" title="git-ftp">git-ftp</a>. This allows you to bring version control into your deployment workflow and only upload the files that have changed.</p>
+
+<p>###Git</p>
+
+<p>Speaking of Git, if you’re using it to source-control your site, you can set it up to push to your web server when it’s time for deployment. To do this you’ll need to set up a post-update hook on your remote server. You’ll also, of course, need Git installed on your server and SSH access. This method of deployment is a little more technical than others, so you’ll need to be comfortable with Git, the command line interface, and writing basic scripts. <a href="http://nicolasgallagher.com/simple-git-deployment-strategy-for-static-sites/" title="Git for static sites">Nicolas Gallagher wrote one of the best posts</a> on the subject that I’ve seen, though a quick Google search will return several articles detailing versions of this workflow.</p>
+
+<p>###Deployment Web Services</p>
+
+<p>Several online services offer deployment workflows for apps and sites. Most offer tiers of services that range from free to monthly fees based on the size and number of sites you’ll be updating. While many of their services aren’t really necessary for smaller static sites, the convenience of having your deployment automated with a single click is pretty nice, and the extra features can come in handy as your site grows. Check out <a href="http://beanstalkapp.com/" title="Beanstalk">Beanstalk</a>, <a href="http://deploybot.com/" title="Deploybot">DeployBot</a>, <a href="https://www.netlify.com/" title="Netlify">Netlify</a> and <a href="https://travis-ci.org/" title="Travis CI">Travis CI</a> for a good idea of how these services work and if they’re right for you.</p>
+
+<p>###Github</p>
+
+<p>Github uses Jekyll to power it’s Github Pages feature, so it’s only natural that deploying Jekyll sites through Github is quick and easy. You can even host your personal or project site for free on Github. You have two options for serving your site: user/organization or as a project page. Each Github user gets one free user/organization Github Pages site, and unlimited project pages. Organization pages are served as the “home” site for the user, so it’s served at <code class="highlighter-rouge">username.github.io.</code> Project pages are served as subdomains, so they would be served at <code class="highlighter-rouge">username.github.io/project-name.</code> The only real difference between the two methods is how you format relative links, as project pages have the project name directory as part of their base URL. You can even redirect a custom domain to your Github Pages site, which makes it a very attractive choice for hosting personal blogs and smaller sites.</p>
+
+<p>The workflow for deploying to Github Pages is simple. Login to your Github account, create a new repo, and then point your local repo to use the new Github repo as its remote. Create a new branch called <code class="highlighter-rouge">gh-pages</code> and push everything except the <strong>_site</strong> directory to your new Github repo. Github will detect the Jekyll site, build it, and serve the site at the appropriate URL. From there, updating the site is as simple as writing a new Markdown file and making a push.</p>
+
+<p>###More information</p>
+
+<p>For more information on deploying Jekyll sites (and more options), check out the section on <a href="http://jekyllrb.com/docs/deployment-methods/" title="deployment methods">deployment methods</a> in Jekyll’s documentation.</p>
+
+
+        <footer>
+        <p>Posted in <a href="/techarq-v-2/tags/index.html#jekyll" title="Pages tagged jekyll" rel="tag">jekyll</a>, <a href="/techarq-v-2/tags/index.html#deployment" title="Pages tagged deployment" rel="tag">deployment</a>, <a href="/techarq-v-2/tags/index.html#github+pages" title="Pages tagged github pages" rel="tag">github pages</a>, <a href="/techarq-v-2/tags/index.html#git" title="Pages tagged git" rel="tag">git</a></p>
+        </footer>
+    </article>
+    <section class="post-links">
+    <p>Read more:</p>
+  
+    <p class="prevLink"><a class="previous" href="/techarq-v-2/blog/front-matter">YAML front matter</a></p>
+  
+  
+    <p class="nextLink"><a class="next" href="/techarq-v-2/blog/what-is-information-architecture">What is Information Architecture?</a></p>
+  
+	</section>
+    </article>
+</main>
+
+<footer role="contentinfo" class="page-footer">
+<p class="legal">&copy; 2016 Gaspar Lobato Grinberg</p>
+</footer>
+
+</body>
+</html>
